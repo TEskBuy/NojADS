@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NojAds design tokens. Light is the base; dark overrides only the values. */
+:root {
+  --bg: 248 249 251;
+  --surface: 255 255 255;
+  --raised: 244 246 249;
+  --line: 226 231 238;
+  --ink: 17 24 39;
+  --muted: 90 102 122;
+  --faint: 140 152 170;
+  --brand: 79 70 229;
+  --brand-ink: 255 255 255;
+  --ok: 21 128 61;
+  --warn: 180 83 9;
+  --danger: 190 32 42;
+  --info: 29 78 216;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: 12 15 22;
+  --surface: 20 25 34;
+  --raised: 28 34 46;
+  --line: 44 52 68;
+  --ink: 233 238 246;
+  --muted: 156 168 186;
+  --faint: 112 124 143;
+  --brand: 129 124 255;
+  --brand-ink: 12 15 22;
+  --ok: 74 201 126;
+  --warn: 235 168 62;
+  --danger: 248 113 113;
+  --info: 96 165 250;
+  color-scheme: dark;
+}
+
+* { border-color: rgb(var(--line)); }
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--line));
+  border-radius: 999px;
+  border: 2px solid rgb(var(--bg));
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--brand));
+  outline-offset: 2px;
+}
+
+/* Tables scroll inside their own container, never the page body. */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+@media print {
+  .no-print { display: none !important; }
+}
